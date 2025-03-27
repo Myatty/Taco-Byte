@@ -1,6 +1,6 @@
 package com.taco.taco_cloud.ControllerTest;
 
-import com.taco.taco_cloud.controller.HomeController;
+import com.taco.taco_cloud.controllers.HomeController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
