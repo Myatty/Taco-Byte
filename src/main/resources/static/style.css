@@ -24,3 +24,9 @@
 .ingredient-group span {
     font-weight: bold;
 }
+
+.validationError {
+    color: red;
+    font-weight: bold;
+}
+
