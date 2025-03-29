@@ -23,6 +23,7 @@ public class TacoOrder {
 
     @NotBlank(message="Zip code is required")
     private String deliveryZip;
+
     @CreditCardNumber(message="Not a valid credit card number")
     private String ccNumber;
 
