@@ -11,11 +11,11 @@ import java.util.List;
 
 
 @Repository
-public class JdbcIngredientTemplate implements IngredientRepository{
+public class JdbcIngredientRepository implements IngredientRepository{
 
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcIngredientTemplate(JdbcTemplate jdbcTemplate) {
+    public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

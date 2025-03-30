@@ -1,9 +1,11 @@
 package com.taco.taco_cloud.controllers;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import com.taco.taco_cloud.models.TacoOrder;
+import com.taco.taco_cloud.repositories.IngredientRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,29 @@ import com.taco.taco_cloud.models.Taco;
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
+
+    private final IngredientRepository ingredientRepository;
+
+    public DesignTacoController(IngredientRepository ingredientRepository) {
+        this.ingredientRepository = ingredientRepository;
+    }
+
+    @ModelAttribute
+    public void addIngredientsToModel(Model model) {
+        Iterable<Ingredient> ingredients = ingredientRepository.findAll();
+        Type[] types = Ingredient.Type.values();
+
+        // Convert Iterable to List
+        List<Ingredient> ingredientList = new ArrayList<>();
+        ingredients.forEach(ingredientList::add);
+
+        for (Type type : types) {
+            model.addAttribute(type.toString().toLowerCase(),
+                    filterByType(ingredientList, type));
+        }
+    }
+
+/*
 
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
@@ -40,6 +65,7 @@ public class DesignTacoController {
                     filterByType(ingredients, type));
         }
     }
+*/
 
     @ModelAttribute(name = "tacoOrder")
     public TacoOrder order() {
