@@ -30,11 +30,11 @@ public class JdbcOrderRepository implements OrderRepository {
     public TacoOrder save(TacoOrder order) {
         PreparedStatementCreatorFactory pscf =
                 new PreparedStatementCreatorFactory(
-                        "insert into Taco_Order "
+                        "INSERT INTO Taco_Order "
                                 + "(delivery_name, delivery_street, delivery_city, "
                                 + "delivery_state, delivery_zip, cc_number, "
                                 + "cc_expiration, cc_cvv, placed_at) "
-                                + "values (?,?,?,?,?,?,?,?,?)",
+                                + "VALUES (?,?,?,?,?,?,?,?,?)",
                         Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
                         Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
                         Types.VARCHAR, Types.VARCHAR, Types.TIMESTAMP
@@ -72,9 +72,9 @@ public class JdbcOrderRepository implements OrderRepository {
         taco.setCreatedAt(new Date());
         PreparedStatementCreatorFactory pscf =
                 new PreparedStatementCreatorFactory(
-                        "insert into Taco "
+                        "INSERT INTO Taco "
                                 + "(name, created_at, taco_order, taco_order_key) "
-                                + "values (?, ?, ?, ?)",
+                                + "VALUES (?, ?, ?, ?)",
                         Types.VARCHAR, Types.TIMESTAMP, Types.BIGINT, Types.BIGINT
                 );
         pscf.setReturnGeneratedKeys(true);
@@ -104,11 +104,11 @@ public class JdbcOrderRepository implements OrderRepository {
         int key = 0;
         for (IngredientRef ingredientRef : ingredientRefs) {
             jdbcOperations.update(
-                    "insert into Ingredient_Ref (ingredient, taco, taco_key) "
-                            + "values (?, ?, ?)",
+                    "INSERT INTO Ingredient_Ref (ingredient, taco, taco_key) "
+                            + "VALUES (?, ?, ?)",
                     ingredientRef.getIngredient(), tacoId, key++);
         }
     }
-    }
+}
 
 
