@@ -34,7 +34,7 @@ public class JdbcOrderRepository implements OrderRepository {
                                 + "(delivery_name, delivery_street, delivery_city, "
                                 + "delivery_state, delivery_zip, cc_number, "
                                 + "cc_expiration, cc_cvv, placed_at) "
-                                + "VALUES (?,?,?,?,?,?,?,?,?)",
+                                + "values (?,?,?,?,?,?,?,?,?)",
                         Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
                         Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
                         Types.VARCHAR, Types.VARCHAR, Types.TIMESTAMP
