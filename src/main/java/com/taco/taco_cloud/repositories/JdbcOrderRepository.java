@@ -74,7 +74,7 @@ public class JdbcOrderRepository implements OrderRepository {
                 new PreparedStatementCreatorFactory(
                         "insert into Taco "
                                 + "(name, created_at, taco_order, taco_order_key) "
-                                + "VALUES (?, ?, ?, ?)",
+                                + "values (?, ?, ?, ?)",
                         Types.VARCHAR, Types.TIMESTAMP, Types.BIGINT, Types.BIGINT
                 );
         pscf.setReturnGeneratedKeys(true);
