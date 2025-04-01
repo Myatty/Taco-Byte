@@ -104,8 +104,8 @@ public class JdbcOrderRepository implements OrderRepository {
         int key = 0;
         for (IngredientRef ingredientRef : ingredientRefs) {
             jdbcOperations.update(
-                    "insert into Ingredient_Ref (ingredient, taco, taco_key) "
-                            + "values (?, ?, ?)",
+                    "INSERT INTO Ingredient_Ref (ingredient, taco, taco_key) "
+                            + "VALUES (?, ?, ?)",
                     ingredientRef.getIngredient(), tacoId, key++);
         }
     }
