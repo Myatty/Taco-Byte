@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+/*
+    Jakarta Persistence (JPA), and JPA requires every @Entity class
+    to have a public or protected no-argument constructor.
+*/
+
 @Data
 @Entity
 @AllArgsConstructor
